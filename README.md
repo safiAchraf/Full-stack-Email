@@ -6,7 +6,7 @@ This project is a full-stack email application that allows users to send, receiv
 ## Screenshots
 ### the Front-end : 
 inspired by this design found it in dribble ( @asaldesign )
-[dribble](https://dribbble.com/shots/19031327-Asal-Mail-Mailbox-Concept-Application){:target="_blank"}
+[dribble](https://dribbble.com/shots/19031327-Asal-Mail-Mailbox-Concept-Application)
 
 ### Database Schema : 
 
