@@ -30,3 +30,4 @@ class Email(models.Model):
             "archived": self.archived,
             "deleted": self.deleted
         }
+    # folders soon will be implemented
