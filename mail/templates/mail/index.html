@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mail/style.css' %} ">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <title>Smail</title>
+</head>
+<body style="font-family: Poppins;">
+    <div class="dashboard">
+        <div class="left">
+          <div class="navigation">
+            <div class="avatar-container">
+                <div class="avatar" id="user-avatar"></div>
+                <div> <p id="user-name" style="margin-block-end: 0;margin-block-start: 0; text-align: start;">{{ request.user.first_name }} {{ request.user.last_name }}</p> 
+                  <span id="user-email" style="color: gray; margin-left: 15px;"> {{ request.user.email }}</span>
+                </div>
+                <div><i class="icon fas fa-sign-out-alt" id="logout" title="logout" ></i></div>
+              </div> 
+            <div class="wrapper2">
+              
+              <button class="compose">
+                <div class="svg-wrapper-1">
+                  <div class="svg-wrapper">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span style="margin-left:23px; font-size: medium;">New Message</span>
+              </button>
+              
+              <div class="folder-icons" id="inbox_mails">
+                <div class="icon1">
+                  <img src="{% static 'mail/asserts/PNGs/inbox.png' %}" style="height: 25px; width: auto;" />
+                </div>
+                <div class="icon-name">Inbox
+                  
+                </button></div>
+              </div>
+              <div class="folder-icons" style="padding: 2px 2px 2px 17px;" id="sent_mails">
+                <div class="icon1">
+                  <img src="{% static 'mail/asserts/PNGs/outbox.png'%}" style="height: 25px; width: auto; margin-top: 5px;"/>
+                </div>
+                <div class="icon-name">Sent Mails</div>
+              </div>
+              <div class="folder-icons" id="saved_mails">
+                <div class="icon1">
+                  <img src="{% static 'mail/asserts/PNGs/file-cabinet.png' %}" style="height: 25px; width: auto;"/>
+                </div>
+                <div class="icon-name" style="margin-bottom: 2px;">Favourites</div>
+              </div>
+              <div class="folder-icons" id="deleted_mails">
+                <div class="icon1">
+                  <img src="{% static 'mail/asserts/PNGs/trash.png' %}" style="height: 25px; width: auto;" />
+                </div>
+                <div class="icon-name" style="margin-bottom: 5px;">Trash</div>
+              </div>
+              <br>
+              <div class="folders">
+                Labels :
+              </div>
+              <br>
+              
+              <div class="label-icons">
+                <div class="icon1">
+                  <img src="{% static 'mail/asserts/PNGs/circle violet.png' %}" style="height: 15px; width: auto;" />
+                </div>
+                <div class="icon-name" style="margin-bottom: 4px;">Work</div>
+                </div>
+              <div class="label-icons">
+                  <div class="icon1">
+                    <img src="{% static 'mail/asserts/PNGs/circle blue.png' %}" style="height: 15px; width: auto;" />
+                  </div>
+                  <div class="icon-name" style="margin-bottom: 4px;">Personal</div>
+              </div>
+
+              
+
+              
+
+            </div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="right-body">
+            <div class="scroll-cards">
+
+              <div class="cards-header">
+
+                <div class="inbox-name"> 
+                  <h3 style="margin-block-end: 0px;margin-block-start: 0px; padding-top: 10px;" id="mailbox_name">Inbox</h3>
+                  <span style="font-size: 13px;" id="mail-count"></span>
+                   </div>
+                <div class="search-wrapper">
+                  <input class="search-input" type="text" placeholder="Search" id="search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                    <defs></defs>
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                  </svg>
+                </div>
+                
+              </div>
+
+
+              <div id="cards"></div>
+
+              
+            
+            </div>
+            <div class="message">
+              <div class="rectangle">
+                    <div class="notification-text">
+                      <i class="fa-solid fa-square-check"></i>
+                      <span>&nbsp;&nbsp;Email sent successfully! .</span>
+                    </div>
+              </div>
+              <div class="message-header" style="margin-bottom: 15px;">
+                <div class="message-header-icons" id="backarrow"><img src="{% static 'mail/asserts/PNGs/arrow.png'%}" alt="Back"  style="height: 15px;" title="Back" ></div>
+
+                	
+
+                <div >
+                  <img src="{% static 'mail/asserts/PNGs/delete.png'%}" alt="Delete" style="height: 17px; margin-right: 20px;" class="lana" title="Delete This Mail" id="message_view_delete">
+                  <img src="{% static 'mail/asserts/PNGs/printer.png'%}" alt="Print" style="height: 17px;" class="lana" title="Print The Mail" id="printButton">
+                </div>
+          
+              </div>
+
+              <hr style="opacity: 0.2;padding-left: 10px;padding-right: 10px;">
+              <div class="message-info">
+                <div>
+                  <h4 id="sender_name"></h4>
+                  <span class="email"> from :  <span id="sender_email">  </span> </span>
+                </div>
+                <div>
+                <div class="mes-date" id="sender_date">
+                  
+                </div>
+                <div id="message_icons" style="text-align: right;">
+                  <img src="{% static 'mail/asserts/PNGs/forward.png'%}" alt="forward" style="height: 20px;" class="lana" title="Forward" id="forward">
+                  <img src="{%static 'mail/asserts/PNGs/reply.png'%}" alt="reply" style="height: 22px; margin-left: 25px; margin-top: 5px;" class="lana" title="Reply" id="reply">
+                </div>
+              </div>
+              </div>
+
+              <hr style="opacity: 0.2;padding-left: 10px;padding-right: 10px;margin-top: 10px;margin-bottom: 20px;" >
+              
+              <div class="title" id="sender_title">
+                
+ 
+              </div>
+
+              <div class="message-from" id="sender_message">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="new">
+  
+          <div class="new-mail">
+              
+              <div class="new-mail-exp">
+                  <div class="new-mail-exp__item">
+                      <div class="new-mail-exp__label">To</div>
+                      <input placeholder="Enter email" type="text" class="new-mail-exp__input" id="recipients">
+                  </div>
+                  <div class="new-mail-exp__item">
+                      <div class="new-mail-exp__label">Object</div>
+                      <input placeholder="Enter mail object" type="text" class="new-mail-exp__input" id="subject">
+                  </div>
+              </div>
+              <div class="new-mail__content">
+                  <textarea class="new-mail__message" style="resize: none;" id="body"></textarea>
+              </div>
+              <div class="new-mail-foot">
+                  <div class="new-mail-foot__insert">
+                      <i class="new-mail-foot__icon far fa-file-archive" aria-hidden="true"></i>
+                      <i class="new-mail-foot__icon far fa-image" aria-hidden="true"></i>
+                      <i class="new-mail-foot__icon fas fa-paperclip" aria-hidden="true"></i>
+                  </div>
+                  <div class="new-mail-foot__actions">
+                      <button class="button button new-mail__toggle">Cancel</button>
+                      <button class="button button--primary" id="send_mail">
+                          <img src="{%static 'mail/asserts/PNGs/send.png'%}" alt="" style="height: 10px;"> Send</button>
+                  </div>
+              </div>
+          </div>
+</body>
+<script>
+  const deleteIconURL = "{% static 'mail/asserts/PNGs/icons8-deleted-message-64.png' %}";
+  const saveIconURL = "{% static 'mail/asserts/PNGs/icons8-mail-favorite-64.png' %}";
+  const readed = "{% static 'mail/asserts/PNGs/read.png' %}";
+  const unreaded = "{% static 'mail/asserts/PNGs/notread.png' %}";
+</script>
+<script src="{%static 'mail/script.js'%}"></script>
+</html>
