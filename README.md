@@ -9,6 +9,7 @@ inspired by this design found it in dribble ( @asaldesign )
 [dribble](https://dribbble.com/shots/19031327-Asal-Mail-Mailbox-Concept-Application)
 
 ### Database Schema : 
+You can access it via [DrawSQL](https://drawsql.app/teams/safi-2/diagrams/safi-mail)
 
 ![App Screenshot](https://i.ibb.co/TKkwwbC/sqlschema.png)
 
