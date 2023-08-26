@@ -11,7 +11,7 @@ inspired by this design found it in dribble ( @asaldesign )
 ### Database Schema : 
 You can access it via [DrawSQL](https://drawsql.app/teams/safi-2/diagrams/safi-mail)
 
-![App Screenshot]("https://i.ibb.co/Dr1tYYv/draw-SQL-safi-mail-export-2023-08-26.png)
+![App Screenshot]("https://i.ibb.co/Dr1tYYv/draw-SQL-safi-mail-export-2023-08-26.png")
 
 
 ## Tech Stack 
